@@ -1,3 +1,3 @@
 # image-gallery
 
-## Code Fellows 401 Final Assignment
+Code Fellows 401 Final Assignment

@@ -3,19 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Image Gallery</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/application.css">
 </head>
 <body data-ng-app="imagesApp">
-  <main data-ng-controller="imagesController">
-    <h1>Images!!!!</h1>
-		<div data-ng-repeat='image in images'>
-      <img data-ng-src= {{image.link}} /><br />{{image.description}}
+  <main data-ng-controller="ImgController" data-ng-init='getAllImages()'>
+    <h1>Add An Image:</h1>
+    <form class='center' data-ng-submit='createImage(newImage)'>
+      <input data-ng-model='newImage.link' type='text' placeholder='Add Link'/>
+      <input data-ng-model='newImage.description' type='text' placeholder='Caption'/>
+      <input type='submit'/>
+    </form>
+    <h1>Your Images:</h1>
+		<div class='tile' data-ng-repeat='image in images'>
+      <img data-ng-src= {{image.link}} /><br/><p>{{image.description}}</p>
 		</div>
-		<form data-ng-submit='createImage(newImage)'>
-			<input data-ng-model='newImage.link' type='text' placeholder='Add Link'/>
-			<input data-ng-model='newImage.description' type='text' placeholder='Caption'/>
-			<input type='submit'/>
-		</form>
-		<p>{{images}}</p>
   </main>
 
   <script src="bundle.js"></script>

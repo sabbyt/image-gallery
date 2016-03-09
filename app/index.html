@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Image Gallery</title>
+</head>
+<body data-ng-app="imagesApp">
+  <main data-ng-controller="imagesController">
+    <h1>Images!!!!</h1>
+		<div data-ng-repeat='image in images'>
+      <img data-ng-src= {{image.link}} /><br />{{image.description}}
+		</div>
+		<form data-ng-submit='createImage(newImage)'>
+			<input data-ng-model='newImage.link' type='text' placeholder='Add Link'/>
+			<input data-ng-model='newImage.description' type='text' placeholder='Caption'/>
+			<input type='submit'/>
+		</form>
+		<p>{{images}}</p>
+  </main>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
